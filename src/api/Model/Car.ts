@@ -3,3 +3,9 @@ export interface Car {
     name: string;
     photoBase64: string;
 }
+
+export interface CarList {
+    items: Car[];
+    totalItems: number;
+    totalPages: number;
+}

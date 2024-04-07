@@ -51,7 +51,14 @@
     border-radius: 8px;
     opacity: 1;
     width: 96%;
+    font-size: 18px;
 }
+
+.modal-create input[type="text"] {
+    padding: 20px;
+}
+
+
 
 .modal-create .buttons {
     padding-top: 25px;
@@ -69,4 +76,29 @@
     height: 48px;
     color: white;
     font-size: 18px;
+}
+
+input[type="file"] {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 20px;
+    position: relative;
+
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #FFFFFF;
+    padding: 14px 25px;
+    box-shadow: 0px 3px 6px #E763162E;
+    border: 1px solid #E76316;
+    border-radius: 8px;
+    color: #E76316;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    position: absolute;
+    right: -15px;
+    top: 5px;
 }

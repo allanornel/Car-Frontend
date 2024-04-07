@@ -4,10 +4,11 @@ import { MainContext } from '../../context/MainContext';
 
 import iconDelete from "../../assets/Icon-trash.svg";
 import { deleteCar } from '../../api/CarApi';
+import { toast } from 'react-toastify';
 
 
 export default function DeleteModal() {
-  const { modalDelete, setModalDelete, carIdSelected, setCarIdSelected, setShouldRefetch } =
+  const { modalDelete, setModalDelete, carIdSelected, setCarIdSelected, setShouldRefetch, shouldRefetch, setIsLoading } =
     useContext(MainContext);
 
   const closeModal = () => {
@@ -15,9 +16,14 @@ export default function DeleteModal() {
   };
 
   const deleteCard = () => {
-    deleteCar(carIdSelected).then(() => {
-      setShouldRefetch(true);
-
+    setIsLoading(true);
+    deleteCar(carIdSelected)
+    .then(() => {
+      setShouldRefetch(!shouldRefetch);
+      toast.success('Carro excluído com sucesso');
+    })
+    .catch(() => {
+      toast.error('Erro ao excluir carro');
     })
       .finally(() => {
         setModalDelete(false);

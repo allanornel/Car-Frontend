@@ -1,10 +1,10 @@
-import { Car } from "./Model/Car";
+import { Car, CarList } from "./Model/Car";
 
 const urlRoot: string = 'https://localhost:7240/api';
 
 
-export async function getAll(searchFilter: string): Promise<Car[]> {
-    const response = await fetch(`${urlRoot}/car?query=${searchFilter}`);
+export async function getAll(searchFilter: string, page : number): Promise<CarList> {
+    const response = await fetch(`${urlRoot}/car?query=${searchFilter}&page=${page}`);
     return await response.json();
 }
 

@@ -8,12 +8,14 @@ import SearchBar from './components/SearchBar/SearchBar'
 import { MainContext } from './context/MainContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Loader from './components/Loader/Loader'
 
 function App() {
   const { modalCreate, modalDelete } = useContext(MainContext);
 
   return (
     <>
+      <Loader />
       <Header />
       <SearchBar />
       <CardsContainer />

@@ -8,7 +8,7 @@ import iconCreate from "../../assets/icone_criar.svg";
 import { toast } from "react-toastify";
 
 export default function ModalCreate() {
-    const { modalCreate, setModalCreate, carIdSelected, setShouldRefetch } = useContext(MainContext);
+    const { modalCreate, setModalCreate, carIdSelected, setShouldRefetch, shouldRefetch, setIsLoading } = useContext(MainContext);
     const [name, setName] = useState<string>('');
     const [fileInput, setFileInput] = useState<File | null>(null);
 
@@ -49,24 +49,26 @@ export default function ModalCreate() {
             formData.append('file', fileInput);
         }
 
+        setIsLoading(true);
         if (carIdSelected === 0) {
             try {
                 const createdCar = await create(formData);
                 console.log(createdCar);
-                setShouldRefetch(true);
+                setShouldRefetch(!shouldRefetch);
                 toast.success('Carro criado com sucesso');
             } catch (error) {
                 toast.error('Erro ao criar carro');
             }
             finally {
                 closeModal();
+                setIsLoading(false);
             }
             return;
         }
         // UPDATE
         try {
             await update(carIdSelected, formData);
-            setShouldRefetch(true);
+            setShouldRefetch(!shouldRefetch);
             toast.success('Carro atualizado com sucesso');
         } catch (error) {
             toast.error('Erro ao atualizar carro ' + carIdSelected);
@@ -74,6 +76,7 @@ export default function ModalCreate() {
         }
         finally {
             closeModal();
+            setIsLoading(false);
         }
     };
 
@@ -91,7 +94,7 @@ export default function ModalCreate() {
                         <label>DIGITE UM NOME PARA O CARD</label>
                         <input type="text" placeholder="Digite o título" value={name} onChange={handleTextInputChange} />
                         <label>INCLUA UMA IMAGEM PARA APARECER NO CARD</label>
-                        <input type="file" onChange={handleFileInputChange} />
+                        <input type="file" accept="image/*" onChange={handleFileInputChange} />
                         <div className="buttons">
                             <button type="submit">{carIdSelected > 0 ? 'Editar' : 'Criar'} Card</button>
                         </div>
