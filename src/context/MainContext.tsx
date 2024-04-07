@@ -3,8 +3,6 @@ import { createContext, useState, ReactNode } from 'react';
 interface MainContextProps {
     textFilter: string;
     setTextFilter: (text: string) => void;
-    isError: boolean;
-    setIsError: (value: boolean) => void;
     isLoading: boolean;
     setIsLoading: (value: boolean) => void;
     modalCreate: boolean;
@@ -20,8 +18,6 @@ interface MainContextProps {
 export const MainContext = createContext<MainContextProps>({
     textFilter: '',
     setTextFilter: () => { },
-    isError: false,
-    setIsError: () => { },
     isLoading: false,
     setIsLoading: () => { },
     modalCreate: false,
@@ -40,7 +36,6 @@ interface MainProviderProps {
 
 export default function MainProvider({ children }: MainProviderProps) {
     const [textFilter, setTextFilter] = useState('');
-    const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [modalCreate, setModalCreate] = useState(false);
     const [modalDelete, setModalDelete] = useState(false);
@@ -51,8 +46,6 @@ export default function MainProvider({ children }: MainProviderProps) {
     const contextValue: MainContextProps = {
         textFilter,
         setTextFilter,
-        isError,
-        setIsError,
         isLoading,
         setIsLoading,
         modalCreate,
