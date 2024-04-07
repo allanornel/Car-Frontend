@@ -1,0 +1,47 @@
+.searchBar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./../../assets/fundo-busca.png");
+    height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+input {
+    width: 92%;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    color: #757575;
+    font-size: 24px;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.searchBar-input {
+    margin-top: 80px;
+    align-items: center;
+    display: flex;
+    background-color: #FFFFFF;
+    width: 70%;
+    height: min-content;
+    border-radius: 8px;
+
+}
+
+input:focus {
+    outline: none;
+}
+
+
+.searchBar-input img {
+    padding: 15px;
+}
+
+button {
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+}
