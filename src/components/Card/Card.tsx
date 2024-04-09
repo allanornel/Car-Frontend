@@ -28,7 +28,7 @@ export default function Card(props: CardProps) {
     return (
         <div className="card-container">
             <div className="img-container">
-                <img src={`data:image/png;base64,${props.base64}`} alt={props.name} />
+                <img src={props.base64} alt={props.name} />
             </div>
             <div className="text-container">
                 <h4>{props.name}</h4>

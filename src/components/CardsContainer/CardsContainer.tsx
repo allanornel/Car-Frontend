@@ -62,7 +62,7 @@ export default function CardsContainer() {
             </div>
             <div className="pagination-container">
                 <span>Total de carros: {totalCars}</span>
-                {totalPages !== 1 &&
+                {totalPages > 1 &&
                     <>
                         <span>Página {page} de {totalPages}</span>
                         {page !== 1 && <button onClick={handlePrevPage} disabled={page === 1}>Página Anterior</button>}

@@ -4,7 +4,7 @@ import lupaIcon from '../../assets/lupa.png';
 import { MainContext } from '../../context/MainContext';
 
 export default function SearchBar() {
-    const {  setTextFilter, textFilter } = useContext(MainContext);
+    const {  setTextFilter, textFilter, setShouldRefetch, shouldRefetch } = useContext(MainContext);
     const [searchText, setSearchText] = useState(textFilter);
 
     // #TODO: Implement loading
@@ -13,6 +13,8 @@ export default function SearchBar() {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if(searchText === textFilter)
+            setShouldRefetch(!shouldRefetch);
         setTextFilter(searchText);
     };
 

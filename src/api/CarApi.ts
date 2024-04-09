@@ -1,6 +1,6 @@
 import { Car, CarList } from "./Model/Car";
 
-const urlRoot: string = 'https://localhost:7240/api';
+const urlRoot: string = 'https://app-allanornel-api.azurewebsites.net/api';
 
 
 export async function getAll(searchFilter: string, page : number): Promise<CarList> {
