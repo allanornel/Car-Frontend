@@ -21,8 +21,11 @@ $ cd car-frontend
 #Instale as dependências através do comando
 $ npm install
 
-#Execute a publicação
-$ npm run dev
+#Primieramente, build o projeto
+$ npm run build
+
+#Após o build, para executar o projeto
+$ npm run preview
 
 #Aparecerá uma mensagem com o localhost e a porta para acesso do site.
 ```
